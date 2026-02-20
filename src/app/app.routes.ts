@@ -26,5 +26,7 @@ export const routes: Routes = [
   { path: 'food/:id', component: FoodDetailComponent },
   { path: 'delivery', component: DeliveryDetailsComponent },
   { path: 'confirmation', component: OrderConfirmationComponent },
+  { path: 'orders', component: OrderTrackingComponent }, 
+  { path: 'account', component: LoginComponent },   
   { path: '**', redirectTo: '' }
 ];

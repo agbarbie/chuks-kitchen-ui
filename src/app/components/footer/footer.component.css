@@ -1,5 +1,5 @@
 .footer {
-  background: #0F1F17;
+  background: #5C3010;       
   color: rgba(255,255,255,0.85);
   padding-top: 64px;
 }
@@ -15,7 +15,7 @@
   font-family: 'Dancing Script', cursive;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
+  color: #E8521A;             
   display: block;
   margin-bottom: 14px;
 }
@@ -23,10 +23,25 @@
 .footer-brand p {
   font-size: 0.88rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.75);
   margin-bottom: 20px;
   max-width: 300px;
 }
+.footer-social ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 36px;        
+}
+.footer-social a {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.70);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.footer-social a:hover { color: #FF7043; }
 .social-links { display: flex; gap: 10px; }
 .social-btn {
   width: 38px; height: 38px;
@@ -38,7 +53,7 @@
   font-size: 1rem;
   text-decoration: none;
   transition: all 0.25s;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
 }
 .social-btn:hover { background: #E8521A; }
 
@@ -52,6 +67,9 @@
   letter-spacing: 0.06em;
   margin-bottom: 18px;
 }
+.footer-container {
+  grid-template-columns: 2fr 1fr 1.5fr 1fr;   /* 👈 4 columns */
+}
 .footer-links ul {
   list-style: none;
   padding: 0; margin: 0;
@@ -61,7 +79,7 @@
 }
 .footer-links a {
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.70);
   text-decoration: none;
   transition: all 0.25s;
 }
@@ -71,15 +89,15 @@
 }
 .footer-contact p {
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.70);
   margin-bottom: 9px;
 }
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.12);
   padding: 20px 24px;
   text-align: center;
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.40);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -89,4 +107,44 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+}
+.footer {
+  background: #5C3010;
+  color: rgba(255,255,255,0.85);
+  padding-top: 64px;
+  font-family: 'Jost', sans-serif;    /* 👈 add this */
+}
+
+.logo-text {
+  font-family: 'Dancing Script', cursive;   /* 👈 cursive only for the logo */
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #E8521A;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  font-family: 'Jost', sans-serif;    /* 👈 headings */
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+
+.footer-links a,
+.footer-social a,
+.footer-contact p,
+.footer-brand p {
+  font-family: 'Jost', sans-serif;    /* 👈 body text */
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.footer-bottom p {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
 }
