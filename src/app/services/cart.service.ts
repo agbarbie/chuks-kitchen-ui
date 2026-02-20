@@ -5,6 +5,7 @@ export interface MenuItem {
   name: string;
   price: number;
   emoji: string;
+  imageUrl: string;  // 👈 add this line
   category: string;
   description: string;
   rating: number;

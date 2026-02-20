@@ -1,1 +1,115 @@
-<p>home works!</p>
+<!-- HERO -->
+<section class="hero">
+  <img class="hero-img" src="assets/images/Welcome.png" alt="Nigerian food spread">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">The Heart of Nigerian Home<br>Cooking</h1>
+    <p class="hero-subtitle">Handcrafted with passion, delivered with care.</p>
+    <a routerLink="/menu" class="btn-discover">Discover what's new</a>
+  </div>
+</section>
+
+<!-- SEARCH BAR -->
+<div class="search-wrap">
+  <div class="search-bar">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input type="text" placeholder="What are you craving for today?" [(ngModel)]="searchQuery">
+  </div>
+</div>
+
+<!-- POPULAR CATEGORIES -->
+<section class="categories-section">
+  <div class="section-container">
+    <h2 class="section-title">Popular Categories</h2>
+    <div class="cat-grid">
+      @for (cat of categories; track cat.name) {
+        <div class="cat-card">
+          <img class="cat-img" [src]="cat.image" [alt]="cat.name">
+          <div class="cat-label">{{ cat.name }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CHEF'S SPECIALS -->
+<section class="specials-section">
+  <div class="section-container">
+    <h2 class="section-title">Chef's Specials</h2>
+    <div class="specials-grid">
+      @for (item of featured; track item.id) {
+        <div class="meal-card">
+          <img class="meal-img" [src]="item.imageUrl" [alt]="item.name">
+          <div class="meal-body">
+            <div class="meal-name">{{ item.name }}</div>
+            <div class="meal-desc">{{ item.description }}</div>
+            <div class="meal-footer">
+              <span class="meal-price">₦{{ item.price | number }}</span>
+              <button class="btn-add" (click)="onAddToCart(item)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo-banner">
+  <img class="promo-bg" src="assets/images/promo-bg.jpg" alt="New menu">
+  <div class="promo-content">
+    <h2 class="promo-title">Introducing Our New Menu Additions!</h2>
+    <p class="promo-desc">
+      Explore exciting new dishes, crafted with the freshest
+      ingredients and authentic Nigerian flavors. Limited time offer!
+    </p>
+    <a routerLink="/menu" class="btn-discover">Discover what's new</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-name">Chuks Kitchen</div>
+      <p>Bringing the authentic flavors of Nigerian home cooking to your table, with passion and care.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/menu">Explore</a></li>
+        <li><a routerLink="/orders">My Order</a></li>
+        <li><a routerLink="/about">About Us</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li><span>+234 801 234 5678</span></li>
+        <li><span>hello&#64;chukskitchen.com</span></li>
+        <li><span>123 Victoria Blvd, Lagos, Nigeria</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Chuks Kitchen. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+<button class="scroll-top" (click)="scrollToTop()">↑</button>
+
+<app-toast [message]="toastMsg()" [visible]="toastVisible()"></app-toast>

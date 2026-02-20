@@ -1,1 +1,105 @@
-<p>order-tracking works!</p>
+<!-- Header -->
+<div class="page-header">
+  <span class="section-tag">Live Tracking</span>
+  <h1>Track Your <span class="accent">Order</span></h1>
+  <p>Enter your order ID to see real-time status updates</p>
+</div>
+
+<!-- Lookup Card -->
+<div class="lookup-wrap">
+  <div class="lookup-card">
+    <h2>Find Your Order</h2>
+    <p>Your order ID was provided after placing your order (e.g. CK-123456)</p>
+    <div class="lookup-row">
+      <input class="lookup-input" type="text"
+             placeholder="CK-000000"
+             [value]="orderIdInput()"
+             (input)="onInput($event)"
+             (keydown.enter)="trackOrder()"
+             maxlength="9" />
+      <button class="lookup-btn" (click)="trackOrder()">Track →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tracking Result -->
+@if (trackedOrder()) {
+  <div class="tracking-result">
+
+    <!-- Order Info -->
+    <div class="info-card">
+      <div class="info-header">
+        <h3>Order {{ trackedOrder()!.id }}</h3>
+        <span class="status-badge"
+              [class.preparing]="currentStep() < 4"
+              [class.on-way]="currentStep() === 4"
+              [class.delivered]="currentStep() === 5">
+          {{ currentStep() === 5 ? '✅' : currentStep() === 4 ? '🚴' : '🍳' }}
+          {{ statusLabel() }}
+        </span>
+      </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Customer</label>
+          <span>{{ trackedOrder()!.name }}</span>
+        </div>
+        <div class="info-item">
+          <label>Phone</label>
+          <span>{{ trackedOrder()!.phone }}</span>
+        </div>
+        <div class="info-item">
+          <label>Items</label>
+          <span>{{ trackedOrder()!.items.length }} item(s)</span>
+        </div>
+        <div class="info-item">
+          <label>Order Time</label>
+          <span>{{ formatOrderTime(trackedOrder()!.time) }}</span>
+        </div>
+        <div class="info-item">
+          <label>Address</label>
+          <span>{{ trackedOrder()!.address }}</span>
+        </div>
+        <div class="info-item">
+          <label>Est. Delivery</label>
+          <span class="eta">
+            {{ etaMins() > 0 ? '~' + etaMins() + ' min' : 'Delivered! 🎉' }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Steps -->
+    <div class="progress-card">
+      <h3>Order Progress</h3>
+      <div class="steps-track">
+        <div class="track-line">
+          <div class="track-fill" [style.width.%]="progressPct()"></div>
+        </div>
+        @for (step of steps; track step.label; let i = $index) {
+          <div class="track-step" [class]="getStepClass(i)">
+            <div class="step-circle">{{ step.icon }}</div>
+            <div class="step-label">{{ step.label }}</div>
+            <div class="step-time">{{ getStepTime(i) }}</div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Rider Card -->
+    @if (showRider()) {
+      <div class="rider-card">
+        <div class="rider-avatar">🚴</div>
+        <div class="rider-info">
+          <strong>Emeka Adeleke</strong>
+          <span>Delivery Rider ·
+            {{ etaMins() > 0 ? '~' + etaMins() + ' mins away' : 'Arrived!' }}
+          </span>
+        </div>
+        <button class="call-btn">📞 Call Rider</button>
+      </div>
+    }
+
+  </div>
+}
+
+<app-toast [message]="toastMsg()" [visible]="toastVisible()"></app-toast>

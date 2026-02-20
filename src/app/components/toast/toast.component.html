@@ -1,1 +1,4 @@
-<p>toast works!</p>
+<div class="toast" [class.show]="visible()">
+  <span>✅</span>
+  <span>{{ message() }}</span>
+</div>
