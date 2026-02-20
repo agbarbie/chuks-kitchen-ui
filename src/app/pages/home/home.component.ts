@@ -21,12 +21,12 @@ export class HomeComponent {
   scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
   categories = [
-    { name: 'Jollof Delights', image: 'assets/images/Property 1=Default.png' },
-    { name: 'Swallow & Soups', image: 'assets/images/Property 2=Default.png' },
-    { name: 'Grills & BBQ', image: 'assets/images/Property 10=Default.png' },
-    { name: 'Sweet Treats', image: 'assets/images/Property 4=Default.png' },
-    { name: 'Jollof Delights', image: 'assets/images/Property 2=Default.png' },
-    { name: 'Jollof Delights', image: 'assets/images/Property 10=Default.png' },
+    { name: 'Jollof Delights', image: 'images/Property 1=Default.png' },
+    { name: 'Swallow & Soups', image: 'images/Property 1=Variant2.png' },
+    { name: 'Grills & BBQ', image: 'images/Property 1=Variant10.png' },
+    { name: 'Sweet Treats', image: 'images/Property 1=Variant4.png' },
+    { name: 'Jollof Delights', image: 'images/Property 1=Variant2.png' },
+    { name: 'Jollof Delights', image: 'images/Property 1=Variant10.png' },
   ];
 
   cart = inject(CartService);

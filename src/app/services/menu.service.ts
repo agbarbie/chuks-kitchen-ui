@@ -8,43 +8,43 @@ export class MenuService {
   readonly items: MenuItem[] = [
   {
     id: 'rice-1', name: 'Jollof Rice + Chicken', price: 2500, emoji: '🍛',
-    imageUrl: 'assets/images/image 3.png',
+    imageUrl: 'images/Property 1=Variant5.png',
     category: 'Rice Dishes', rating: 4.9, badge: 'bestseller',
     description: 'Party-style Jollof rice slow-cooked in a rich tomato base, served with grilled chicken'
   },
   {
     id: 'rice-2', name: 'Fried Rice + Tilapia', price: 2800, emoji: '🍚',
-    imageUrl: 'assets/images/image 2.png',
+    imageUrl: 'images/image3.png',
     category: 'Rice Dishes', rating: 4.7,
     description: 'Colourful vegetable fried rice cooked with soy sauce, served with crispy whole tilapia'
   },
   {
     id: 'rice-3', name: 'White Rice + Stew', price: 2000, emoji: '🍱',
-    imageUrl: 'assets/images/image 3.png',
+    imageUrl: 'images/image8.png',
     category: 'Rice Dishes', rating: 4.6,
     description: 'Steamed long-grain rice with rich tomato stew and assorted meat of your choice'
   },
   {
     id: 'soup-1', name: 'Egusi Soup + Fufu', price: 3000, emoji: '🍲',
-    imageUrl: 'assets/images/image 4.png',
+    imageUrl: 'images/image2.png',
     category: 'Soups', rating: 4.8, badge: 'spicy',
     description: 'Rich melon seed soup cooked with assorted meat and stockfish, served with fufu'
   },
   {
     id: 'soup-2', name: 'Ofe Akwu + Pounded Yam', price: 3200, emoji: '🥘',
-    imageUrl: 'assets/images/image 5.png',
+    imageUrl: 'images/image1.png',
     category: 'Soups', rating: 4.8, badge: 'new',
     description: 'Palm nut soup with assorted meats, served with smooth pounded yam'
   },
   {
     id: 'soup-3', name: 'Okra Soup + Eba', price: 2700, emoji: '🫕',
-    imageUrl: 'assets/images/image 6.png',
+    imageUrl: 'images/image6.png',
     category: 'Soups', rating: 4.7,
     description: 'Thick okra soup loaded with prawns and shredded beef, paired with golden eba'
   },
   {
     id: 'prot-1', name: 'Peppered Chicken', price: 1800, emoji: '🍗',
-    imageUrl: 'assets/images/image 7.png',
+    imageUrl: 'images/image7.png',
     category: 'Proteins', rating: 5.0, badge: 'bestseller',
     description: 'Tender chicken marinated and slow-cooked in rich Nigerian pepper sauce'
   },
