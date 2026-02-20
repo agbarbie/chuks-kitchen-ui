@@ -1,0 +1,71 @@
+@if (item) {
+<div class="detail-page">
+
+  <!-- LEFT: Food Image -->
+  <div class="detail-left">
+    <img [src]="item.imageUrl" [alt]="item.name" class="detail-img">
+  </div>
+
+  <!-- RIGHT: Details Panel -->
+  <div class="detail-right">
+    <button class="close-btn" (click)="goBack()">✕</button>
+
+    <h1 class="detail-name">{{ item.name }}</h1>
+    <p class="detail-price">₦{{ totalPrice() | number }}</p>
+    <p class="detail-desc">{{ item.description }}</p>
+
+    <!-- TAGS -->
+    <div class="detail-tags">
+      <span class="tag">🌶 Mildly spicy</span>
+      <span class="tag">🥗 Vegetarian option available</span>
+      <a href="#" class="tag-link">🔔 View Allergies</a>
+    </div>
+
+    <!-- CHOOSE PROTEIN -->
+    <div class="option-section">
+      <h3 class="option-title">Choose Your Protein</h3>
+      @for (protein of proteins; track protein.label) {
+        <label class="option-row" [class.selected]="selectedProtein === protein">
+          <input type="radio" name="protein"
+                 [checked]="selectedProtein === protein"
+                 (change)="selectedProtein = protein">
+          <span class="option-label">{{ protein.label }}</span>
+          <span class="option-extra">
+            {{ protein.extra > 0 ? '+₦' + protein.extra : protein.note }}
+          </span>
+        </label>
+      }
+    </div>
+
+    <!-- EXTRA SIDES -->
+    <div class="option-section">
+      <h3 class="option-title">Extra Sides (Optional)</h3>
+      @for (side of sides; track side.label) {
+        <label class="option-row" [class.selected]="side.selected">
+          <input type="checkbox" [(ngModel)]="side.selected">
+          <span class="option-label">{{ side.label }}</span>
+          <span class="option-extra">+₦{{ side.extra }}</span>
+        </label>
+      }
+    </div>
+
+    <!-- SPECIAL INSTRUCTIONS -->
+    <div class="option-section">
+      <h3 class="option-title">Special Instructions</h3>
+      <textarea class="instructions-input" rows="3"
+        placeholder="E.g no onion, food is too spicy, food is too hot"
+        [(ngModel)]="specialInstructions"></textarea>
+    </div>
+
+    <button class="btn-add-cart" (click)="addToCart()">
+      Add to Cart — ₦{{ totalPrice() | number }}
+    </button>
+  </div>
+
+</div>
+} @else {
+  <div class="not-found">
+    <p>Item not found.</p>
+    <button (click)="goBack()">Back to Menu</button>
+  </div>
+}

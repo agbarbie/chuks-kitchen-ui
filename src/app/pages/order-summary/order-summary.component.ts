@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 import { inject } from '@angular/core';
@@ -8,7 +8,7 @@ import { CartService } from '../../services/cart.service';
 @Component({
   selector: 'app-order-summary',
   standalone: true,
-  imports: [RouterLink, FormsModule, DecimalPipe],
+  imports: [FormsModule, DecimalPipe],
   templateUrl: './order-summary.component.html',
   styleUrl: './order-summary.component.css'
 })
@@ -28,6 +28,6 @@ export class OrderSummaryComponent {
   }
 
   proceedToCheckout() {
-    this.router.navigate(['/payment']);
-  }
+  this.router.navigate(['/delivery']); // was /payment
+}
 }

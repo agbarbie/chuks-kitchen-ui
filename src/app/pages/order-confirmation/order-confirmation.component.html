@@ -1,0 +1,46 @@
+<div class="page-wrap">
+  <div class="confirmation-card">
+
+    <div class="success-icon">
+      <div class="checkmark">✓</div>
+    </div>
+
+    <h1 class="confirm-title">Order Placed!</h1>
+    <p class="confirm-subtitle">
+      Your order has been received and is being prepared.
+    </p>
+
+    <div class="order-id-box">
+      <span class="order-id-label">Order ID</span>
+      <span class="order-id">{{ orderId }}</span>
+    </div>
+
+    <div class="status-steps">
+      <div class="step done">
+        <div class="step-dot">✓</div>
+        <span>Order Confirmed</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step active">
+        <div class="step-dot">🍳</div>
+        <span>Preparing</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-dot">🚴</div>
+        <span>On the way</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step">
+        <div class="step-dot">🏠</div>
+        <span>Delivered</span>
+      </div>
+    </div>
+
+    <p class="eta-note">Estimated delivery time: <strong>30–45 mins</strong></p>
+
+    <button class="btn-track" (click)="trackOrder()">Track My Order</button>
+    <button class="btn-home" (click)="backToHome()">Back to Home</button>
+
+  </div>
+</div>

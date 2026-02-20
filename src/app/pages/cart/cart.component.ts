@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { ToastComponent } from '../../components/toast/toast.component';
 
@@ -12,6 +12,7 @@ import { ToastComponent } from '../../components/toast/toast.component';
 })
 export class CartComponent {
   cart = inject(CartService);
+  private router = inject(Router);        // 👈 added
 
   name = signal('');
   phone = signal('');
@@ -63,19 +64,16 @@ export class CartComponent {
     if (!this.name() || !this.phone() || !this.address() || !this.payMethod()) {
       this.showToast('Please fill all delivery details'); return;
     }
-    const id = 'CK-' + Math.floor(100000 + Math.random() * 900000);
-    this.orderId.set(id);
-    this.cart.saveOrder({
-      id,
+
+    // Save delivery details so order-summary can read them
+    this.cart.saveDeliveryDetails({          // 👈 changed
       name: this.name(),
       phone: this.phone(),
       address: this.address(),
-      payMethod: this.payMethod(),
-      items: this.cart.cartItems(),
-      time: new Date().toISOString()
+      payMethod: this.payMethod()
     });
-    this.cart.clearCart();
-    this.modalVisible.set(true);
+
+    this.router.navigate(['/order-summary']); // 👈 changed
   }
 
   closeModal() {

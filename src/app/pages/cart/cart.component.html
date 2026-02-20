@@ -113,21 +113,4 @@
 
 </div>
 
-<!-- Confirmation Modal -->
-<div class="modal-overlay" [class.show]="modalVisible()">
-  <div class="modal">
-    <div class="modal-icon">🎉</div>
-    <h2>Order Placed!</h2>
-    <p>Your order has been received and is being prepared.</p>
-    <div class="order-id">{{ orderId() }}</div>
-    <p class="order-id-note">Save this ID to track your order</p>
-    <div class="modal-actions">
-      <a [routerLink]="['/track']"
-         [queryParams]="{id: orderId()}"
-         class="btn-primary">Track Order</a>
-      <button class="btn-outline" (click)="closeModal()">Done</button>
-    </div>
-  </div>
-</div>
-
 <app-toast [message]="toastMsg()" [visible]="toastVisible()"></app-toast>

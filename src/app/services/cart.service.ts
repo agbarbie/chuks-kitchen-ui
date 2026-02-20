@@ -5,7 +5,7 @@ export interface MenuItem {
   name: string;
   price: number;
   emoji: string;
-  imageUrl: string;  // 👈 add this line
+  imageUrl: string;
   category: string;
   description: string;
   rating: number;
@@ -27,13 +27,20 @@ export interface Order {
   time: string;
 }
 
+export interface DeliveryDetails {       // 👈 new interface
+  name: string;
+  phone: string;
+  address: string;
+  payMethod: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class CartService {
   private readonly CART_KEY = 'chuksKitchenCart';
   private readonly ORDER_KEY = 'chuksLastOrder';
 
-  // Reactive state using Angular 19 signals
   cartItems = signal<CartItem[]>(this.loadCart());
+  deliveryDetails = signal<DeliveryDetails | null>(null);   // 👈 new
 
   totalItems = computed(() =>
     this.cartItems().reduce((sum, i) => sum + i.qty, 0)
@@ -85,6 +92,10 @@ export class CartService {
   clearCart() {
     this.cartItems.set([]);
     localStorage.removeItem(this.CART_KEY);
+  }
+
+  saveDeliveryDetails(details: DeliveryDetails) {    // 👈 new
+    this.deliveryDetails.set(details);
   }
 
   saveOrder(order: Order) {

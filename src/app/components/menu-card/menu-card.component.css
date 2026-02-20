@@ -5,6 +5,7 @@
   border: 1px solid #E8E8E4;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   transition: all 0.25s ease;
+  cursor:pointer;
 }
 .menu-card:hover {
   transform: translateY(-6px);

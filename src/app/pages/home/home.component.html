@@ -25,7 +25,7 @@
     <h2 class="section-title">Popular Categories</h2>
     <div class="cat-grid">
       @for (cat of categories; track cat.name) {
-        <div class="cat-card">
+        <div class="cat-card" routerLink="/menu" role="link" tabindex="0">
           <img class="cat-img" [src]="cat.image" [alt]="cat.name">
           <div class="cat-label">{{ cat.name }}</div>
         </div>
@@ -40,14 +40,16 @@
     <h2 class="section-title">Chef's Specials</h2>
     <div class="specials-grid">
       @for (item of featured; track item.id) {
-        <div class="meal-card">
+        <!-- Card click → food detail -->
+        <div class="meal-card" (click)="onViewFood(item)">
           <img class="meal-img" [src]="item.imageUrl" [alt]="item.name">
           <div class="meal-body">
             <div class="meal-name">{{ item.name }}</div>
             <div class="meal-desc">{{ item.description }}</div>
             <div class="meal-footer">
               <span class="meal-price">₦{{ item.price | number }}</span>
-              <button class="btn-add" (click)="onAddToCart(item)">Add to cart</button>
+              <!-- stopPropagation stops the card click from also firing -->
+              <button class="btn-add" (click)="onAddToCart(item, $event)">Add to cart</button>
             </div>
           </div>
         </div>
@@ -68,8 +70,6 @@
     <a routerLink="/menu" class="btn-discover">Discover what's new</a>
   </div>
 </section>
-
-
 
 <!-- SCROLL TO TOP -->
 <button class="scroll-top" (click)="scrollToTop()">↑</button>

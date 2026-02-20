@@ -38,7 +38,10 @@
   <!-- Grid -->
   <div class="menu-grid">
     @for (item of filteredItems(); track item.id) {
-      <app-menu-card [item]="item" (addToCart)="onAdd($event)">
+      <app-menu-card
+        [item]="item"
+        (addToCart)="onAdd($event)"
+        (viewFood)="onViewFood($event)">
       </app-menu-card>
     }
     @if (filteredItems().length === 0) {

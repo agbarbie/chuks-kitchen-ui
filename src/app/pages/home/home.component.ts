@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService, MenuItem } from '../../services/cart.service';
@@ -16,6 +16,8 @@ import { ToastComponent } from '../../components/toast/toast.component';
 export class HomeComponent {
 
   searchQuery = '';
+  private router = inject(Router);
+
   scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
   categories = [
@@ -35,7 +37,13 @@ export class HomeComponent {
 
   featured = this.menuService.items.slice(0, 6);
 
-  onAddToCart(item: MenuItem) {
+  // Navigate to food detail page
+  onViewFood(item: MenuItem) {
+    this.router.navigate(['/food', item.id]);
+  }
+
+  onAddToCart(item: MenuItem, event: Event) {
+    event.stopPropagation(); // prevents card click from firing when adding to cart
     this.cart.addItem(item);
     this.toastMsg.set(`${item.name} added to cart!`);
     this.toastVisible.set(true);

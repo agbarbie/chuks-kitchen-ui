@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,25 @@ export class RegisterComponent {
   showConfirmPassword = false;
   agreedToTerms = false;
 
+  constructor(private router: Router) {}
+
   onRegister() {
-    console.log('Register:', this.email, this.phone);
+    if (!this.email || !this.phone || !this.password || !this.confirmPassword) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    if (this.password !== this.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    if (!this.agreedToTerms) {
+      alert('Please agree to the Terms and Conditions');
+      return;
+    }
+
+    // TODO: Replace with real API call later
+    this.router.navigate(['/home']);
   }
 }

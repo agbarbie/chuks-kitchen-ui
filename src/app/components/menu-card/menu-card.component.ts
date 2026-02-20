@@ -10,6 +10,7 @@ import { MenuItem } from '../../services/cart.service';
 export class MenuCardComponent {
   item = input.required<MenuItem>();
   addToCart = output<MenuItem>();
+  viewFood = output<MenuItem>();        // 👈 new
   wishlisted = signal(false);
 
   badgeLabel() {
@@ -21,7 +22,17 @@ export class MenuCardComponent {
     return map[this.item().badge!] || '';
   }
 
-  toggleWish() {
+  toggleWish(event: Event) {
+    event.stopPropagation();            // 👈 prevent card click
     this.wishlisted.update(v => !v);
+  }
+
+  onCardClick() {
+    this.viewFood.emit(this.item());    // 👈 navigate to food detail
+  }
+
+  onAddClick(event: Event) {
+    event.stopPropagation();            // 👈 prevent card click
+    this.addToCart.emit(this.item());
   }
 }

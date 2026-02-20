@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -14,8 +14,14 @@ export class LoginComponent {
   password = '';
   showPassword = false;
 
+  constructor(private router: Router) {}
+
   onLogin() {
-    // handle login logic here
-    console.log('Login:', this.email, this.password);
+    // TODO: Replace this with real auth logic later
+    if (this.email && this.password) {
+      this.router.navigate(['/home']);
+    } else {
+      alert('Please enter your email and password');
+    }
   }
 }

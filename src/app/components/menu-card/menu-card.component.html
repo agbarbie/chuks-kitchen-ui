@@ -1,4 +1,4 @@
-<div class="menu-card">
+<div class="menu-card" (click)="onCardClick()">
   <div class="card-image">
     <div class="food-placeholder">{{ item().emoji }}</div>
     @if (item().badge) {
@@ -6,7 +6,7 @@
         {{ badgeLabel() }}
       </span>
     }
-    <button class="wishlist-btn" [class.active]="wishlisted()" (click)="toggleWish()">
+    <button class="wishlist-btn" [class.active]="wishlisted()" (click)="toggleWish($event)">
       {{ wishlisted() ? '♥' : '♡' }}
     </button>
   </div>
@@ -18,7 +18,7 @@
     <p class="card-desc">{{ item().description }}</p>
     <div class="card-footer">
       <span class="card-price">₦{{ item().price.toLocaleString() }}</span>
-      <button class="btn-add" (click)="addToCart.emit(item())">+ Add</button>
+      <button class="btn-add" (click)="onAddClick($event)">+ Add</button>
     </div>
   </div>
 </div>

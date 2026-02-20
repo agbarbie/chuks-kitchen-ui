@@ -1,4 +1,5 @@
 import { Component, inject, signal, computed } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService, MenuItem } from '../../services/cart.service';
 import { MenuService } from '../../services/menu.service';
@@ -15,6 +16,7 @@ import { ToastComponent } from '../../components/toast/toast.component';
 export class MenuComponent {
   cart = inject(CartService);
   menuService = inject(MenuService);
+  private router = inject(Router);
 
   activeCategory = signal('All');
   searchQuery = signal('');
@@ -34,6 +36,11 @@ export class MenuComponent {
 
   onSearch(event: Event) {
     this.searchQuery.set((event.target as HTMLInputElement).value);
+  }
+
+  // Navigate to food detail page
+  onViewFood(item: MenuItem) {
+    this.router.navigate(['/food', item.id]);
   }
 
   onAdd(item: MenuItem) {
