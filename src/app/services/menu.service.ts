@@ -50,25 +50,25 @@ export class MenuService {
   },
   {
     id: 'prot-2', name: 'Suya Beef Skewers', price: 2200, emoji: '🥩',
-    imageUrl: 'assets/images/image 8.png',
+    imageUrl: 'images/image8.png',
     category: 'Proteins', rating: 4.9,
     description: 'Grilled beef skewers seasoned with authentic suya spice blend, served with onions'
   },
   {
     id: 'snack-1', name: 'Puff Puff (6 pcs)', price: 600, emoji: '🟤',
-    imageUrl: 'assets/images/image 9.png',
+    imageUrl: 'images/image9.png',
     category: 'Snacks', rating: 4.8,
     description: 'Freshly fried fluffy Nigerian doughnuts, lightly sweetened and perfectly golden'
   },
   {
     id: 'drink-1', name: 'Zobo Drink', price: 500, emoji: '🥤',
-    imageUrl: 'assets/images/image 10.png',
+    imageUrl: 'images/image10.png',
     category: 'Drinks', rating: 4.6,
     description: 'Chilled hibiscus drink infused with ginger and pineapple, naturally sweet'
   },
   {
     id: 'drink-2', name: 'Kunu Drink', price: 400, emoji: '🍺',
-    imageUrl: 'assets/images/image 11.png',
+    imageUrl: 'images/image11.png',
     category: 'Drinks', rating: 4.5,
     description: 'Traditional millet-based drink, lightly spiced and refreshingly creamy'
   },
