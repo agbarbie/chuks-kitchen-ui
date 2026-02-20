@@ -1,0 +1,122 @@
+.page-wrap {
+  min-height: calc(100vh - 68px);
+  background: #F0F0F0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 24px;
+}
+.payment-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+.payment-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1C1C1C;
+  margin-bottom: 16px;
+}
+.divider {
+  border: none;
+  border-top: 1px solid #E8E8E4;
+  margin: 16px 0;
+}
+.pay-label {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1C1C1C;
+  margin-bottom: 12px;
+}
+.pay-methods {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #3A3A3A;
+  cursor: pointer;
+}
+.radio-option input[type="radio"] {
+  accent-color: #22C55E;
+  width: 16px;
+  height: 16px;
+}
+.form-group {
+  margin-bottom: 18px;
+  flex: 1;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3A3A3A;
+  margin-bottom: 8px;
+}
+.form-input {
+  width: 100%;
+  border: 1.5px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-size: 0.95rem;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  color: #1C1C1C;
+  transition: border-color 0.2s;
+}
+.form-input:focus { border-color: #E8521A; }
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.save-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: #5A5A5A;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+.save-card input { accent-color: #E8521A; }
+.bank-info {
+  background: #FFF5F0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+  font-size: 0.92rem;
+  color: #3A3A3A;
+  line-height: 1.8;
+}
+.btn-pay {
+  width: 100%;
+  background: #E8521A;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background 0.2s;
+}
+.btn-pay:hover { background: #C43E0A; }
+.privacy-note {
+  font-size: 0.78rem;
+  color: #9A9A9A;
+  line-height: 1.6;
+  text-align: center;
+}

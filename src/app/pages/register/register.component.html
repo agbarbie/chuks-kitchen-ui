@@ -1,0 +1,81 @@
+<div class="register-page">
+
+  <!-- LEFT SIDE -->
+  <div class="register-left">
+    <img src="assets/images/login-bg.jpg" alt="Nigerian food" class="register-bg">
+    <div class="register-overlay"></div>
+    <div class="register-left-content">
+      <h2>Chuks Kitchen</h2>
+      <p>Your journey to delicious, authentic Nigerian meals starts here. Sign up or log in to order your favorites today!</p>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="register-right">
+    <div class="register-form-wrap">
+      <div class="register-logo">Chuks Kitchen</div>
+      <h1 class="register-title">Create Your Account</h1>
+
+      <div class="form-group">
+        <label>Email</label>
+        <div class="input-wrap">
+          <span class="input-icon">✉️</span>
+          <input type="email" placeholder="name@gmail.com" [(ngModel)]="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Phone number</label>
+        <div class="input-wrap">
+          <span class="input-icon">📞</span>
+          <input type="tel" placeholder="8123340690" [(ngModel)]="phone">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap" [class.active]="password">
+          <span class="input-icon">🔒</span>
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="••••••" [(ngModel)]="password">
+          <button class="toggle-pw" (click)="showPassword = !showPassword">
+            {{ showPassword ? '👁️' : '🙈' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Confirm password</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input [type]="showConfirmPassword ? 'text' : 'password'" placeholder="••••••" [(ngModel)]="confirmPassword">
+          <button class="toggle-pw" (click)="showConfirmPassword = !showConfirmPassword">
+            {{ showConfirmPassword ? '👁️' : '🙈' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="terms-wrap">
+        <input type="checkbox" id="terms" [(ngModel)]="agreedToTerms">
+        <label for="terms">
+          I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+        </label>
+      </div>
+
+      <button class="btn-continue" (click)="onRegister()">Continue</button>
+
+      <div class="divider"><span>Or continue with</span></div>
+
+      <button class="btn-social">
+        <img src="https://www.google.com/favicon.ico" width="18" alt="Google"> Continue with Google
+      </button>
+      <button class="btn-social">
+        <span style="color:#1877F2; font-weight:700; font-size:1.1rem;">f</span> Continue with Apple
+      </button>
+
+      <p class="signin-link">
+        Already have an account? <a routerLink="/login">Sign In</a>
+      </p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,56 @@
+<div class="login-page">
+
+  <!-- LEFT SIDE -->
+  <div class="login-left">
+    <img src="assets/images/login-bg.jpg" alt="Nigerian food" class="login-bg">
+    <div class="login-overlay"></div>
+    <div class="login-left-content">
+      <h2>Chuks Kitchen</h2>
+      <p>Your journey to delicious, authentic Nigerian meals starts here. Sign up or log in to order your favorites today!</p>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="login-right">
+    <div class="login-form-wrap">
+      <div class="login-logo">Chuks Kitchen</div>
+      <h1 class="login-title">Login your Account</h1>
+
+      <div class="form-group">
+        <label>Email or phone number</label>
+        <div class="input-wrap">
+          <span class="input-icon">✉️</span>
+          <input type="email" placeholder="name@gmail.com" [(ngModel)]="email">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrap">
+          <span class="input-icon">🔒</span>
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="••••••" [(ngModel)]="password">
+          <button class="toggle-pw" (click)="showPassword = !showPassword">
+            {{ showPassword ? '👁️' : '🙈' }}
+          </button>
+        </div>
+        <a href="#" class="forgot-pw">Forgot Password?</a>
+      </div>
+
+      <button class="btn-continue" (click)="onLogin()">Continue</button>
+
+      <div class="divider"><span>Or continue with</span></div>
+
+      <button class="btn-social">
+        <img src="https://www.google.com/favicon.ico" width="18" alt="Google"> Continue with Google
+      </button>
+      <button class="btn-social">
+        <span style="color:#1877F2; font-size:1.2rem;">f</span> Continue with Apple
+      </button>
+
+      <p class="signup-link">
+        Don't have an account? <a routerLink="/register">Create an account</a>
+      </p>
+    </div>
+  </div>
+
+</div>

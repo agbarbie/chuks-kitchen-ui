@@ -1,0 +1,74 @@
+<div class="page-wrap">
+  <div class="payment-card">
+    <h1 class="payment-title">Payment</h1>
+    <hr class="divider">
+
+    <!-- PAY WITH -->
+    <p class="pay-label">Pay With:</p>
+    <div class="pay-methods">
+      <label class="radio-option">
+        <input type="radio" name="payMethod" value="card"
+               [(ngModel)]="payMethod"> Card
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="payMethod" value="bank"
+               [(ngModel)]="payMethod"> Bank
+      </label>
+      <label class="radio-option">
+        <input type="radio" name="payMethod" value="transfer"
+               [(ngModel)]="payMethod"> Transfer
+      </label>
+    </div>
+
+    @if (payMethod === 'card') {
+      <!-- CARD FIELDS -->
+      <div class="form-group">
+        <label>Card Number</label>
+        <input type="text" placeholder="1234  5678  9101  1121"
+               [(ngModel)]="cardNumber" class="form-input" maxlength="19">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Expiration Date</label>
+          <input type="text" placeholder="MM/YY"
+                 [(ngModel)]="expiry" class="form-input">
+        </div>
+        <div class="form-group">
+          <label>CVV</label>
+          <input type="text" placeholder="123"
+                 [(ngModel)]="cvv" class="form-input" maxlength="3">
+        </div>
+      </div>
+
+      <label class="save-card">
+        <input type="checkbox" [(ngModel)]="saveCard"> Save card details
+      </label>
+    }
+
+    @if (payMethod === 'bank') {
+      <div class="bank-info">
+        <p>Bank: <strong>First Bank Nigeria</strong></p>
+        <p>Account Number: <strong>0123456789</strong></p>
+        <p>Account Name: <strong>Chuks Kitchen Ltd</strong></p>
+      </div>
+    }
+
+    @if (payMethod === 'transfer') {
+      <div class="bank-info">
+        <p>Transfer to:</p>
+        <p>Bank: <strong>GTBank</strong></p>
+        <p>Account: <strong>0987654321</strong></p>
+        <p>Name: <strong>Chuks Kitchen Ltd</strong></p>
+      </div>
+    }
+
+    <button class="btn-pay">Pay ₦{{ total | number }}</button>
+
+    <p class="privacy-note">
+      Your personal data will be used to process your order, support your
+      experience throughout this website, and for other purposes described
+      in our privacy policy.
+    </p>
+  </div>
+</div>
