@@ -36,7 +36,6 @@ export class RegisterComponent {
       return;
     }
 
-    // TODO: Replace with real API call later
     this.router.navigate(['/home']);
   }
 }

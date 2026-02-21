@@ -12,7 +12,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class DeliveryDetailsComponent {
   router = inject(Router);
-  cart = inject(CartService);             // 👈 added
+  cart = inject(CartService);             
 
   name = '';
   phone = '';
@@ -26,8 +26,7 @@ export class DeliveryDetailsComponent {
       return;
     }
 
-    // Save updated delivery details so payment page can read them
-    this.cart.saveDeliveryDetails({      // 👈 added
+    this.cart.saveDeliveryDetails({      
       name: this.name,
       phone: this.phone,
       address: `${this.address}, near ${this.landmark}, ${this.city}`,

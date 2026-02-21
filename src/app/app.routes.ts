@@ -13,7 +13,7 @@ import { DeliveryDetailsComponent } from './pages/delivery-details/delivery-deta
 import { OrderConfirmationComponent } from './pages/order-confirmation/order-confirmation.component';
 
 export const routes: Routes = [
-  { path: '', component: WelcomeComponent },  // 👈 change this
+  { path: '', component: WelcomeComponent }, 
   { path: 'home', component: HomeComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'cart', component: CartComponent },

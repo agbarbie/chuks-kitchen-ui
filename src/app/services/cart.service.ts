@@ -27,7 +27,7 @@ export interface Order {
   time: string;
 }
 
-export interface DeliveryDetails {       // 👈 new interface
+export interface DeliveryDetails {       
   name: string;
   phone: string;
   address: string;
@@ -40,7 +40,7 @@ export class CartService {
   private readonly ORDER_KEY = 'chuksLastOrder';
 
   cartItems = signal<CartItem[]>(this.loadCart());
-  deliveryDetails = signal<DeliveryDetails | null>(null);   // 👈 new
+  deliveryDetails = signal<DeliveryDetails | null>(null);  
 
   totalItems = computed(() =>
     this.cartItems().reduce((sum, i) => sum + i.qty, 0)
@@ -94,7 +94,7 @@ export class CartService {
     localStorage.removeItem(this.CART_KEY);
   }
 
-  saveDeliveryDetails(details: DeliveryDetails) {    // 👈 new
+  saveDeliveryDetails(details: DeliveryDetails) {    
     this.deliveryDetails.set(details);
   }
 

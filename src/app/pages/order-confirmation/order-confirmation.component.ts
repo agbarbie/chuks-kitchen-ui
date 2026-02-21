@@ -13,7 +13,6 @@ export class OrderConfirmationComponent {
   router = inject(Router);
   cart = inject(CartService);
 
-  // 👇 read the real order ID saved by payment.component
   orderId = this.cart.getLastOrder()?.id ?? 'CK-000000';
 
   trackOrder() {
@@ -21,7 +20,6 @@ export class OrderConfirmationComponent {
   }
 
   backToHome() {
-    // cart is already cleared by payment page, just go home
-    this.router.navigate(['/home']);   // 👈 /home not / (per the UI flow)
+    this.router.navigate(['/home']); 
   }
 }

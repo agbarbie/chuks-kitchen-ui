@@ -3,7 +3,6 @@
     <h1 class="summary-title">Order Summary</h1>
     <hr class="divider">
 
-    <!-- PROMO CODE -->
     <div class="promo-section">
       <p class="promo-label">Add a Promo Code</p>
       <div class="promo-wrap">
@@ -14,7 +13,6 @@
 
     <hr class="divider">
 
-    <!-- PRICE BREAKDOWN -->
     <div class="price-rows">
       <div class="price-row">
         <span>Subtotal</span>
@@ -41,7 +39,6 @@
       <span class="total-amount">₦{{ grandTotal() | number }}</span>
     </div>
 
-    <!-- DELIVERY / PICKUP TOGGLE -->
     <div class="toggle-wrap">
       <button class="toggle-btn" [class.active]="deliveryMode === 'delivery'"
               (click)="deliveryMode = 'delivery'">Delivery</button>
@@ -49,7 +46,6 @@
               (click)="deliveryMode = 'pickup'">Pick up</button>
     </div>
 
-    <!-- SPECIAL INSTRUCTIONS -->
     <div class="instructions-section">
       <p class="instructions-label">Special Instructions for Restaurant</p>
       <textarea class="instructions-input" rows="4"

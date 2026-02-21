@@ -38,7 +38,6 @@ export class MenuComponent {
     this.searchQuery.set((event.target as HTMLInputElement).value);
   }
 
-  // Navigate to food detail page
   onViewFood(item: MenuItem) {
     this.router.navigate(['/food', item.id]);
   }

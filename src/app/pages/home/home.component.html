@@ -1,4 +1,3 @@
-<!-- HERO -->
 <section class="hero">
   <img class="hero-img" src="images/Welcome.png" alt="Nigerian food spread">
   <div class="hero-overlay"></div>
@@ -9,7 +8,6 @@
   </div>
 </section>
 
-<!-- SEARCH BAR -->
 <div class="search-wrap">
   <div class="search-bar">
     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -19,7 +17,6 @@
   </div>
 </div>
 
-<!-- POPULAR CATEGORIES -->
 <section class="categories-section">
   <div class="section-container">
     <h2 class="section-title">Popular Categories</h2>
@@ -34,13 +31,11 @@
   </div>
 </section>
 
-<!-- CHEF'S SPECIALS -->
 <section class="specials-section">
   <div class="section-container">
     <h2 class="section-title">Chef's Specials</h2>
     <div class="specials-grid">
       @for (item of featured; track item.id) {
-        <!-- Card click → food detail -->
         <div class="meal-card" (click)="onViewFood(item)">
           <img class="meal-img" [src]="item.imageUrl" [alt]="item.name">
           <div class="meal-body">
@@ -48,7 +43,6 @@
             <div class="meal-desc">{{ item.description }}</div>
             <div class="meal-footer">
               <span class="meal-price">₦{{ item.price | number }}</span>
-              <!-- stopPropagation stops the card click from also firing -->
               <button class="btn-add" (click)="onAddToCart(item, $event)">Add to cart</button>
             </div>
           </div>
@@ -58,7 +52,6 @@
   </div>
 </section>
 
-<!-- PROMO BANNER -->
 <section class="promo-banner">
   <img class="promo-bg" src="images/image4.png" alt="New menu">
   <div class="promo-content">
@@ -71,7 +64,6 @@
   </div>
 </section>
 
-<!-- SCROLL TO TOP -->
 <button class="scroll-top" (click)="scrollToTop()">↑</button>
 
 <app-toast [message]="toastMsg()" [visible]="toastVisible()"></app-toast>

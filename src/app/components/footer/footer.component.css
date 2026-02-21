@@ -68,7 +68,7 @@
   margin-bottom: 18px;
 }
 .footer-container {
-  grid-template-columns: 2fr 1fr 1.5fr 1fr;   /* 👈 4 columns */
+  grid-template-columns: 2fr 1fr 1.5fr 1fr; 
 }
 .footer-links ul {
   list-style: none;
@@ -112,11 +112,11 @@
   background: #5C3010;
   color: rgba(255,255,255,0.85);
   padding-top: 64px;
-  font-family: 'Jost', sans-serif;    /* 👈 add this */
+  font-family: 'Jost', sans-serif;   
 }
 
 .logo-text {
-  font-family: 'Dancing Script', cursive;   /* 👈 cursive only for the logo */
+  font-family: 'Dancing Script', cursive;  
   font-size: 1.5rem;
   font-weight: 700;
   color: #E8521A;
@@ -126,7 +126,7 @@
 
 .footer-links h4,
 .footer-contact h4 {
-  font-family: 'Jost', sans-serif;    /* 👈 headings */
+  font-family: 'Jost', sans-serif;   
   font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
@@ -139,7 +139,7 @@
 .footer-social a,
 .footer-contact p,
 .footer-brand p {
-  font-family: 'Jost', sans-serif;    /* 👈 body text */
+  font-family: 'Jost', sans-serif;  
   font-size: 0.88rem;
   font-weight: 400;
 }

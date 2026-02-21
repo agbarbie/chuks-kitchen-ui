@@ -17,7 +17,6 @@
   margin-bottom: 20px;
 }
 
-/* Main card */
 .cart-card {
   background: #fff;
   border-radius: 12px;
@@ -26,7 +25,6 @@
   margin-bottom: 16px;
 }
 
-/* Each item row */
 .cart-row {
   display: flex;
   align-items: center;
@@ -58,8 +56,6 @@
   font-size: 0.85rem;
   color: #9A9A9A;
 }
-
-/* +/qty/- controls */
 .row-controls {
   display: flex;
   align-items: center;
@@ -93,7 +89,6 @@
   text-align: center;
 }
 
-/* Price */
 .row-price {
   font-family: 'Sora', sans-serif;
   font-size: 1.1rem;
@@ -103,7 +98,6 @@
   text-align: right;
 }
 
-/* Remove ✕ button */
 .remove-btn {
   width: 32px;
   height: 32px;
@@ -122,7 +116,6 @@
 }
 .remove-btn:hover { background: #C43E0A; }
 
-/* Add more link */
 .add-more {
   display: inline-flex;
   align-items: center;
@@ -135,7 +128,6 @@
 }
 .add-more:hover { text-decoration: underline; }
 
-/* Checkout button */
 .btn-checkout {
   display: block;
   width: 100%;
@@ -153,7 +145,6 @@
 }
 .btn-checkout:hover { background: #C43E0A; }
 
-/* Empty state */
 .cart-empty {
   padding: 60px;
   text-align: center;

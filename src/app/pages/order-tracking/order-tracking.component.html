@@ -1,11 +1,9 @@
-<!-- Header -->
 <div class="page-header">
   <span class="section-tag">Live Tracking</span>
   <h1>Track Your <span class="accent">Order</span></h1>
   <p>Enter your order ID to see real-time status updates</p>
 </div>
 
-<!-- Lookup Card -->
 <div class="lookup-wrap">
   <div class="lookup-card">
     <h2>Find Your Order</h2>
@@ -22,11 +20,9 @@
   </div>
 </div>
 
-<!-- Tracking Result -->
 @if (trackedOrder()) {
   <div class="tracking-result">
 
-    <!-- Order Info -->
     <div class="info-card">
       <div class="info-header">
         <h3>Order {{ trackedOrder()!.id }}</h3>
@@ -68,7 +64,6 @@
       </div>
     </div>
 
-    <!-- Progress Steps -->
     <div class="progress-card">
       <h3>Order Progress</h3>
       <div class="steps-track">
@@ -85,7 +80,6 @@
       </div>
     </div>
 
-    <!-- Rider Card -->
     @if (showRider()) {
       <div class="rider-card">
         <div class="rider-avatar">🚴</div>

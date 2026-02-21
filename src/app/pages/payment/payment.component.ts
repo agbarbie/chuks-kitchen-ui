@@ -13,7 +13,7 @@ import { CartService, Order } from '../../services/cart.service';
 })
 export class PaymentComponent {
   cart = inject(CartService);
-  private router = inject(Router);          // 👈 added
+  private router = inject(Router);         
 
   payMethod: 'card' | 'bank' | 'transfer' = 'card';
   cardNumber = '';
@@ -21,10 +21,9 @@ export class PaymentComponent {
   cvv = '';
   saveCard = false;
 
-  total = this.cart.total() + 200; // includes service fee
+  total = this.cart.total() + 200; 
 
   pay() {
-    // Validate card fields if card is selected
     if (this.payMethod === 'card') {
       if (!this.cardNumber || !this.expiry || !this.cvv) {
         alert('Please fill in all card details');
@@ -32,7 +31,6 @@ export class PaymentComponent {
       }
     }
 
-    // Generate order ID and save the completed order
     const id = 'CK-' + Math.floor(100000 + Math.random() * 900000);
     const details = this.cart.deliveryDetails();
 
@@ -46,9 +44,9 @@ export class PaymentComponent {
       time: new Date().toISOString()
     };
 
-    this.cart.saveOrder(order);    // persist to localStorage
-    this.cart.clearCart();         // empty the cart
+    this.cart.saveOrder(order);    
+    this.cart.clearCart();         
 
-    this.router.navigate(['/confirmation']);  // 👈 navigate to confirmation
+    this.router.navigate(['/confirmation']); 
   }
 }

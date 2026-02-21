@@ -1,4 +1,3 @@
-<!-- Header -->
 <div class="page-header">
   <span class="section-tag">Our Menu</span>
   <h1>What Would You Like <span class="accent">Today?</span></h1>
@@ -7,7 +6,6 @@
 
 <div class="menu-content">
 
-  <!-- Search -->
   <div class="search-wrap">
     <div class="search-bar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -21,7 +19,6 @@
     </div>
   </div>
 
-  <!-- Category Filter -->
   <div class="category-filter">
     @for (cat of menuService.categories; track cat) {
       <button class="filter-btn"
@@ -32,10 +29,8 @@
     }
   </div>
 
-  <!-- Results Count -->
   <p class="results-count">{{ filteredItems().length }} items found</p>
 
-  <!-- Grid -->
   <div class="menu-grid">
     @for (item of filteredItems(); track item.id) {
       <app-menu-card

@@ -4,7 +4,6 @@
   min-height: calc(100vh - 68px);
 }
 
-/* LEFT */
 .register-left {
   position: relative;
   overflow: hidden;
@@ -43,7 +42,6 @@
   line-height: 1.7;
 }
 
-/* RIGHT */
 .register-right {
   background: #F5F5F5;
   display: flex;

@@ -1,12 +1,10 @@
 @if (item) {
 <div class="detail-page">
 
-  <!-- LEFT: Food Image -->
   <div class="detail-left">
     <img [src]="item.imageUrl" [alt]="item.name" class="detail-img">
   </div>
 
-  <!-- RIGHT: Details Panel -->
   <div class="detail-right">
     <button class="close-btn" (click)="goBack()">✕</button>
 
@@ -14,14 +12,12 @@
     <p class="detail-price">₦{{ totalPrice() | number }}</p>
     <p class="detail-desc">{{ item.description }}</p>
 
-    <!-- TAGS -->
     <div class="detail-tags">
       <span class="tag">🌶 Mildly spicy</span>
       <span class="tag">🥗 Vegetarian option available</span>
       <a href="#" class="tag-link">🔔 View Allergies</a>
     </div>
 
-    <!-- CHOOSE PROTEIN -->
     <div class="option-section">
       <h3 class="option-title">Choose Your Protein</h3>
       @for (protein of proteins; track protein.label) {
@@ -37,7 +33,6 @@
       }
     </div>
 
-    <!-- EXTRA SIDES -->
     <div class="option-section">
       <h3 class="option-title">Extra Sides (Optional)</h3>
       @for (side of sides; track side.label) {
@@ -49,7 +44,6 @@
       }
     </div>
 
-    <!-- SPECIAL INSTRUCTIONS -->
     <div class="option-section">
       <h3 class="option-title">Special Instructions</h3>
       <textarea class="instructions-input" rows="3"

@@ -36,14 +36,12 @@ export class HomeComponent {
   toastVisible = signal(false);
 
   featured = this.menuService.items.slice(0, 6);
-
-  // Navigate to food detail page
   onViewFood(item: MenuItem) {
     this.router.navigate(['/food', item.id]);
   }
 
   onAddToCart(item: MenuItem, event: Event) {
-    event.stopPropagation(); // prevents card click from firing when adding to cart
+    event.stopPropagation(); 
     this.cart.addItem(item);
     this.toastMsg.set(`${item.name} added to cart!`);
     this.toastVisible.set(true);

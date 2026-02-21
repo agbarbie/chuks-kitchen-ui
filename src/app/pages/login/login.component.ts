@@ -17,7 +17,6 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   onLogin() {
-    // TODO: Replace this with real auth logic later
     if (this.email && this.password) {
       this.router.navigate(['/home']);
     } else {

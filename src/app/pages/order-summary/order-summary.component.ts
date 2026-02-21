@@ -28,6 +28,6 @@ export class OrderSummaryComponent {
   }
 
   proceedToCheckout() {
-  this.router.navigate(['/delivery']); // was /payment
+  this.router.navigate(['/delivery']);
 }
 }
