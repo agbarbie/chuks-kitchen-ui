@@ -1,15 +1,14 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { CartService, MenuItem } from '../../services/cart.service';
 import { MenuService } from '../../services/menu.service';
-import { MenuCardComponent } from '../../components/menu-card/menu-card.component';
 import { ToastComponent } from '../../components/toast/toast.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [FormsModule, MenuCardComponent, ToastComponent],
+  imports: [CommonModule, ToastComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

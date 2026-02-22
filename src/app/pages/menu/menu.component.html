@@ -1,29 +1,28 @@
-<div class="page-header">
-  <span class="section-tag">Our Menu</span>
-  <h1>What Would You Like <span class="accent">Today?</span></h1>
-  <p>Fresh ingredients, authentic flavours, made to order</p>
+<div class="page-header" [style.background-image]="'url(/images/image1.png)'">
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <span class="section-tag">Our Menu</span>
+    <h1>What Would You Like <span class="accent">Today?</span></h1>
+    <p>Fresh ingredients, authentic flavours, made to order</p>
+  </div>
 </div>
 
 <div class="menu-content">
 
   <div class="search-wrap">
     <div class="search-bar">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-           stroke="currentColor" stroke-width="2">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"/>
         <line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
       <input type="text" placeholder="Search for a meal..."
-             [value]="searchQuery()"
-             (input)="onSearch($event)" />
+             [value]="searchQuery()" (input)="onSearch($event)" />
     </div>
   </div>
 
   <div class="category-filter">
     @for (cat of menuService.categories; track cat) {
-      <button class="filter-btn"
-              [class.active]="activeCategory() === cat"
-              (click)="setCategory(cat)">
+      <button class="filter-btn" [class.active]="activeCategory() === cat" (click)="setCategory(cat)">
         {{ cat }}
       </button>
     }
@@ -33,16 +32,38 @@
 
   <div class="menu-grid">
     @for (item of filteredItems(); track item.id) {
-      <app-menu-card
-        [item]="item"
-        (addToCart)="onAdd($event)"
-        (viewFood)="onViewFood($event)">
-      </app-menu-card>
+      <div class="meal-card" (click)="onViewFood(item)">
+
+        @if (item.badge) {
+          <span class="badge badge-{{ item.badge }}">{{ item.badge }}</span>
+        }
+
+        <button class="fav-btn" (click)="$event.stopPropagation()">♡</button>
+
+        <div class="card-img-wrap">
+          <img [src]="item.imageUrl" [alt]="item.name" class="card-img" />
+        </div>
+
+        <div class="card-body">
+          <div class="card-top">
+            <span class="card-cat">{{ item.category }}</span>
+            <span class="card-rating">★ {{ item.rating }}</span>
+          </div>
+          <h3 class="card-title">{{ item.name }}</h3>
+          <p class="card-desc">{{ item.description }}</p>
+          <div class="card-footer">
+            <span class="card-price">₦{{ item.price | number }}</span>
+            <button class="add-btn" (click)="onAdd(item); $event.stopPropagation()">+ Add</button>
+          </div>
+        </div>
+
+      </div>
     }
+
     @if (filteredItems().length === 0) {
       <div class="no-results">
         <span>🔍</span>
-        <p>No meals match your search. Try something else!</p>
+        <p>No meals match your search.</p>
       </div>
     }
   </div>
