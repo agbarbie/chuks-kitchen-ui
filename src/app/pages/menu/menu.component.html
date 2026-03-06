@@ -1,4 +1,4 @@
-<div class="page-header" [style.background-image]="'url(/images/image1.png)'">
+<div class="page-header" [style.background-image]="'url(/images/explorehero.png)'">
   <div class="hero-overlay"></div>
   <div class="hero-text">
     <span class="section-tag">Our Menu</span>
@@ -20,54 +20,64 @@
     </div>
   </div>
 
-  <div class="category-filter">
-    @for (cat of menuService.categories; track cat) {
-      <button class="filter-btn" [class.active]="activeCategory() === cat" (click)="setCategory(cat)">
-        {{ cat }}
-      </button>
-    }
-  </div>
+  <div class="menu-layout">
 
-  <p class="results-count">{{ filteredItems().length }} items found</p>
+    <aside class="menu-sidebar">
+      <p class="sidebar-title">Menu Categories</p>
+      <div class="category-filter">
+        @for (cat of menuService.categories; track cat) {
+          <button class="filter-btn" [class.active]="activeCategory() === cat"
+                  (click)="setCategory(cat)">
+            {{ cat }}
+          </button>
+        }
+      </div>
+    </aside>
 
-  <div class="menu-grid">
-    @for (item of filteredItems(); track item.id) {
-      <div class="meal-card" (click)="onViewFood(item)">
+    <div class="menu-main">
+      <h2 class="section-heading">{{ activeCategory() }}</h2>
+      <p class="results-count">{{ filteredItems().length }} items found</p>
 
-        @if (item.badge) {
-          <span class="badge badge-{{ item.badge }}">{{ item.badge }}</span>
+      <div class="menu-grid">
+        @for (item of filteredItems(); track item.id) {
+          <div class="meal-card" (click)="onViewFood(item)">
+
+            @if (item.badge) {
+              <span class="badge badge-{{ item.badge }}">{{ item.badge }}</span>
+            }
+
+            <button class="fav-btn" (click)="$event.stopPropagation()">♡</button>
+
+            <div class="card-img-wrap">
+              <img [src]="item.imageUrl" [alt]="item.name" class="card-img" />
+            </div>
+
+            <div class="card-body">
+              <div class="card-top">
+                <span class="card-cat">{{ item.category }}</span>
+                <span class="card-rating">★ {{ item.rating }}</span>
+              </div>
+              <h3 class="card-title">{{ item.name }}</h3>
+              <p class="card-desc">{{ item.description }}</p>
+              <div class="card-footer">
+                <span class="card-price">₦{{ item.price | number }}</span>
+                <button class="add-btn" (click)="onAdd(item); $event.stopPropagation()">+ Add</button>
+              </div>
+            </div>
+
+          </div>
         }
 
-        <button class="fav-btn" (click)="$event.stopPropagation()">♡</button>
-
-        <div class="card-img-wrap">
-          <img [src]="item.imageUrl" [alt]="item.name" class="card-img" />
-        </div>
-
-        <div class="card-body">
-          <div class="card-top">
-            <span class="card-cat">{{ item.category }}</span>
-            <span class="card-rating">★ {{ item.rating }}</span>
+        @if (filteredItems().length === 0) {
+          <div class="no-results">
+            <span>🔍</span>
+            <p>No meals match your search.</p>
           </div>
-          <h3 class="card-title">{{ item.name }}</h3>
-          <p class="card-desc">{{ item.description }}</p>
-          <div class="card-footer">
-            <span class="card-price">₦{{ item.price | number }}</span>
-            <button class="add-btn" (click)="onAdd(item); $event.stopPropagation()">+ Add</button>
-          </div>
-        </div>
-
+        }
       </div>
-    }
+    </div>
 
-    @if (filteredItems().length === 0) {
-      <div class="no-results">
-        <span>🔍</span>
-        <p>No meals match your search.</p>
-      </div>
-    }
   </div>
-
 </div>
 
 <app-toast [message]="toastMsg()" [visible]="toastVisible()"></app-toast>

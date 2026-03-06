@@ -17,7 +17,7 @@ export class MenuComponent {
   menuService = inject(MenuService);
   private router = inject(Router);
 
-  activeCategory = signal('All');
+  activeCategory = signal('Popular');
   searchQuery = signal('');
   toastMsg = signal('');
   toastVisible = signal(false);
